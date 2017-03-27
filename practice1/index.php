@@ -8,6 +8,31 @@ mysqli_select_db($conn, 'opentutorials2');
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style media="screen">
+    body{
+      margin: 0;
+    }
+      header{
+        border-bottom: 1px solid gray;
+        padding-left: 70px;
+      }
+      nav {
+        border-right: 1px solid gray;
+        width:200px;
+        height: 700px;
+        float: left;
+      }
+      nav ol{
+        margin: 0;
+        padding:20px;
+        list-style: none;
+      }
+      article{
+        padding-left: 20px;
+        float: left;
+        width: 400px;
+      }
+    </style>
   </head>
   <body>
     <header>
