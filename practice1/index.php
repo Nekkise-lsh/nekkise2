@@ -1,21 +1,49 @@
 <?php
 $conn = mysqli_connect('localhost', 'root', 'llllll');
 mysqli_select_db($conn, 'opentutorials2');
+ ?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <h1>생활코딩 JavaScript</h1>
+    </header>
+    <nav>
+      <ol>
+
+<?php
 $sql  = "SELECT * FROM `topic`";
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
-   echo '<a href="index.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a><br/>';
+   echo '<li><a href="index.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a></li>';
 }
-$id = $_GET['id'];
-$sql = "SELECT * FROM topic WHERE id = ".$id;
+ ?>
+
+      </ol>
+    </nav>
+    <article>
+<?php
+$id = mysqli_real_escape_string($conn, $_GET['id']);
 $sql  = "SELECT topic.id, topic.title, topic.description, user.name, topic.created FROM topic LEFT JOIN user ON topic.author = user.id WHERE topic.id =".$id;
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-echo htmlspecialchars($row['title']);
-echo '<br/>';
-echo htmlspecialchars($row['description']);
-echo '<br/>';
-echo htmlspecialchars($row['created']);
-echo '<br/>';
-echo htmlspecialchars($row['name']);
+?>
+      <h2><?=htmlspecialchars($row['title'])?></h2>
+      <div><?=htmlspecialchars($row['created'])?> | <?=htmlspecialchars($row['name'])?></div>
+      <div><?=htmlspecialchars($row['description'])?></div>
+      <h2></h2>
+    </article>
+  </body>
+</html>
+
+
+
+<?php
+
+
  ?>
