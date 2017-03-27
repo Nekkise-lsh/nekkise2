@@ -12,6 +12,10 @@ mysqli_select_db($conn, 'opentutorials2');
     body{
       margin: 0;
     }
+    body.black{
+      background-color: black;
+      color:white;
+    }
       header{
         border-bottom: 1px solid gray;
         padding-left: 70px;
@@ -27,14 +31,14 @@ mysqli_select_db($conn, 'opentutorials2');
         padding:20px;
         list-style: none;
       }
-      article{
+      $content{
         padding-left: 20px;
         float: left;
         width: 400px;
       }
     </style>
   </head>
-  <body>
+  <body id="body">
     <header>
       <h1>생활코딩 JavaScript</h1>
     </header>
@@ -51,7 +55,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 
       </ol>
     </nav>
-    <article>
+    <div="content">
+      <article>
 <?php
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 $sql  = "SELECT topic.id, topic.title, topic.description, user.name, topic.created FROM topic LEFT JOIN user ON topic.author = user.id WHERE topic.id =".$id;
@@ -61,8 +66,10 @@ $row = mysqli_fetch_assoc($result);
       <h2><?=htmlspecialchars($row['title'])?></h2>
       <div><?=htmlspecialchars($row['created'])?> | <?=htmlspecialchars($row['name'])?></div>
       <div><?=htmlspecialchars($row['description'])?></div>
-      <h2></h2>
-    </article>
+      </article>
+      <input type="button" name="name" value="White" onclick="document.getElementById('body').className=''">
+      <input type="button" name="name" value="Black" onclick="document.getElementById('body').className='black'">
+   </div>
   </body>
 </html>
 
