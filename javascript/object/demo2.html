@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var grades = {
+        'list' : {'egoing' : 10, 'k8805' : 8, 'sorialgi' : 80},
+        'show' : function(){
+          for(var name in this.list){
+            console.log(name);
+          }
+        }
+    }
+
+    console.log('***grades***');
+    for(var name in this.grades){
+      console.log(name);
+    }
+    console.log('***list***');
+    grades.show();
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // var grades = {
+    //     'list' : {'egoing' : 10, 'k8805' : 8, 'sorialgi' : 80},
+    //     'show' : function(){
+    //          alert('Hello world');
+    //     }
+    // }
+    // grades['show']();
+    </script>
+  </body>
+</html>
