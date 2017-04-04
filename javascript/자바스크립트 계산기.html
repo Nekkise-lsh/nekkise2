@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>계산기</title>
+    <script type="text/javascript">
+    function Pbtn(){
+    var PP = document.getElementById("a");
+    var PP2 = document.getElementById("b");
+    var PPP = Number(PP.value )+ Number(PP2.value) ;
+     return alert(PPP);
+    }
+    function Mbtn(){
+    var PP = document.getElementById("a");
+    var PP2 = document.getElementById("b");
+    var PPP = Number(PP.value )- Number(PP2.value) ;
+     return alert(PPP);
+    }
+    function Xbtn(){
+    var PP = document.getElementById("a");
+    var PP2 = document.getElementById("b");
+    var PPP = Number(PP.value )* Number(PP2.value) ;
+     return alert(PPP);
+    }
+    function Zbtn(){
+    var PP = document.getElementById("a");
+    var PP2 = document.getElementById("b");
+    var PPP = Number(PP.value )/ Number(PP2.value) ;
+     return alert(PPP);
+    }
+    </script>
+  </head>
+  <body>
+
+
+  <input type="text" id="a" name="b" />
+  <input type="text" id="b" name="b" />
+
+    <input type="button" value="+" onclick="Pbtn();" />
+    <input type="button" value="-" onclick="Mbtn();" />
+    <input type="button" value="*" onclick="Xbtn();" />
+    <input type="button" value="*" onclick="Zbtn();" />
+</body>
+</html>
