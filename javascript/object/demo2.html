@@ -10,18 +10,18 @@
         'list' : {'egoing' : 10, 'k8805' : 8, 'sorialgi' : 80},
         'show' : function(){
           for(var name in this.list){
-            console.log(name);
+            console.log(name, this.list[name]);
           }
         }
     }
-
-    console.log('***grades***');
-    for(var name in this.grades){
-      console.log(name);
-    }
-    console.log('***list***');
-    grades.show();
-
+ grades.show();
+    // console.log('***grades***');
+    // for(var name in this.grades){
+    //   console.log(name);
+    // }
+    // console.log('***list***');
+    // grades.show();
+    //
 
 
 
