@@ -1,42 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
-    var arr = []
-for(var i = 0; i < 5; i++){
-    arr[i] = function(){
-        return i;
-    }
-}
-for(var index in arr) {
-    console.log(arr[index]());
+
+
+function Apple (type) {
+    this.type = type;
+    this.color = "red";
+    this.getInfo = getAppleInfo;
 }
 
-    </script>
+// 안좋은 방법! 아래 계속 읽어보세요.
+function getAppleInfo() {
+    return this.color + ' ' + this.type + ' apple';
+}
 
 
+function Apple (type) {
+    this.type = type;
+    this.color = "red";
+    this.getInfo = function() {
+        return this.color + ' ' + this.type + ' apple';
+    };
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </head>
-  <body>
-
-  </body>
-</html>
+var apple = new Apple('macintosh');
+apple.color = "reddish";
+alert(apple.getInfo())
+</script>
