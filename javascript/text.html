@@ -2,28 +2,20 @@
 <script type="text/javascript">
 
 
+Object.prototype.contain = function(neddle) {
+    for(var KIN in this){
+        if(this[KIN] === neddle){
+            return true;
+        }
+    }
+    return false;
+}
+var o = {'name':'egoing', 'city':'seoul'}
 
-function Apple (type) {
-    this.type = type;
-    this.color = "red";
-    this.getInfo = getAppleInfo;
+var a = ['egoing','leezche','grapittie'];
+
+for(var KIN in o){
+    console.log(KIN);
 }
 
-// 안좋은 방법! 아래 계속 읽어보세요.
-function getAppleInfo() {
-    return this.color + ' ' + this.type + ' apple';
-}
-
-
-function Apple (type) {
-    this.type = type;
-    this.color = "red";
-    this.getInfo = function() {
-        return this.color + ' ' + this.type + ' apple';
-    };
-}
-
-var apple = new Apple('macintosh');
-apple.color = "reddish";
-alert(apple.getInfo())
 </script>
