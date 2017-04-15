@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function scopeTest() {
+    var a = 0;
+    if (true) {
+        var b = 0;
+        for (var c = 0; c < 5; c++) {
+            console.log("c=" + c);
+         }
+         console.log("c=" + c);
+    }
+    console.log("b=" + b);
+}
+scopeTest();  </script>
+</body>
+
+</html>

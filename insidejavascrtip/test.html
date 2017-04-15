@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title></title>
-  </head>
-  <body>
+</head>
 <script type="text/javascript">
-  var value = 100;
+    var globalStr = "global";
 
-  var myObject = {
-    value: 1,
-    func1: function(){
-      this.value += 1;
-      console.log('func1() called- this.value : ' + this.value);
+    function depth1Func() {
+        var depth1Str = "depth1";
 
-    func2 = function(){
-      this.value += 1;
-      console.log('func2() called- this.value : ' + this.value);
-
-    func3 = function(){
-      this.value += 1;
-      console.log('func3() called- this.value : ' + this.value);
+        function depth2Func() {
+            var depth1Str = "depth2";
+            var depth2Str = "depth2";
+            console.log("depth2: " + globalStr);
+            console.log("depth2: " + depth1Str);
+            console.log("depth2: " + depth2Str);
+           }
+        depth2Func();
+        console.log("depth1: " + globalStr);
+        console.log("depth1: " + depth1Str);
+        console.log("depth1: " + depth2Str);
 
       }
-      func3();
-    }
-    func2();
-    }
-  };
-  myObject.func1();
+        depth1Func();
+        console.log("global: " + globalStr);
+        console.log("global: " + depth1Str);
+        console.log("global: " + depth2Str);
+
+
+
 </script>
 
-  </body>
+<body>
+
+
+</body>
+
 </html>
