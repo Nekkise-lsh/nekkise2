@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var languages = {
+  english: "Hello!",
+  french: "Bonjour!",
+  notALanguage: 4,
+  spanish: "Hola!"
+};
+
+// 세 개의 다른 언어로 인사말을 출력하세요.
+for(var a in languages){
+  if(typeof languages[a] == "string"){
+      console.log(languages[a]);
+  }
+};
+    </script>
+  </body>
+</html>

@@ -6,6 +6,54 @@
   </head>
   <script type="text/javascript">
 
+  var bob = {
+      firstName: "Bob",
+      lastName: "Jones",
+      phoneNumber: "(650) 777-7777",
+      email: "bob.jones@example.com"
+  };
+
+  var mary = {
+      firstName: "Mary",
+      lastName: "Johnson",
+      phoneNumber: "(650) 888-8888",
+      email: "mary.johnson@example.com"
+  };
+
+  var contacts = [bob, mary];
+
+  function printPerson(person) {
+      console.log(person.firstName + " " + person.lastName);
+  }
+
+  var search = function(lastName){
+      var contactsLength = contacts.length;
+      for(var i = 0; i< contactsLength; i++){
+          if(lastName === contacts[i].lastName){
+              printPerson(contacts[i]);
+          }
+      }
+  }
+
+  function list() {
+      var contactsLength = contacts.length;
+      for (var i = 0; i < contactsLength; i++) {
+          printPerson(contacts[i]);
+      }
+  }
+  var add = function (firstName, lastName, email, phoneNumber) {
+      contacts[contacts.length] = {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          phoneNumber: phoneNumber
+      };
+  };
+  add("Tyler", "Reyes", "something@something.com", "555-567-9911");
+  list();
+  /* 함수 search를 생성한 뒤,
+  호출하여 "Jones"을 전달하세요. */
+  search("Jones");
 
 
 
