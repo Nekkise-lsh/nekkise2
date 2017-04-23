@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    function StaffMember(name,discountPercent){
+  this.name = name;
+  this.discountPercent = discountPercent;
+}
+
+var sally = new StaffMember("Sally",5);
+var bob = new StaffMember("Bob",10);
+
+// 20%의 직원 할인가를 갖는 객체 'me'를 생성하세요.
+var me = new StaffMember("john",20);
+
+var cashRegister = {
+  total:0,
+  lastTransactionAmount: 0,
+  add: function(itemCost){
+      this.total += (itemCost || 0);
+      this.lastTransactionAmount = itemCost;
+  },
+  scan: function(item,quantity){
+      switch (item){
+      case "eggs": this.add(0.98 * quantity); break;
+      case "milk": this.add(1.23 * quantity); break;
+      case "magazine": this.add(4.99 * quantity); break;
+      case "chocolate": this.add(0.45 * quantity); break;
+      }
+      return true;
+  },
+  voidLastTransaction : function(){
+      this.total -= this.lastTransactionAmount;
+      this.lastTransactionAmount = 0;
+  },
+  // 여기에 새로운 메소드 applyStaffDiscount를 작성하세요
+applyStaffDiscount : function(employee){
+  this.total -= this.total*(employee.discountPercent/100);
+}
+};
+
+cashRegister.scan('eggs',1);
+cashRegister.scan('milk',1);
+cashRegister.scan('magazine',3);
+// 새로이 작성한 메소드 applyStaffDiscount에
+// 객체 `me`를 전달하여 여러분의 직원 할인가를 적용하세요
+cashRegister.applyStaffDiscount(me);
+
+// Show the total bill
+console.log('Your bill is '+cashRegister.total.toFixed(2));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
